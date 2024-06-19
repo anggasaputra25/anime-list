@@ -14,7 +14,7 @@ const Bookmark = () => {
             const fetchData = () => {
                 try {
                     Items.map((item, index) => 
-                        setTimeout(async() => {const data = await getAnime(`anime/${item}/full`); setAnimes((prevAnimes) => [...prevAnimes, data?.data])}, index * 1000)
+                        setTimeout(async() => {const data = await getAnime(`anime/${item}/full`); setAnimes((prevAnimes) => [...prevAnimes, data?.data])}, index * 700)
                     )        
                 } catch (error) {
                     console.log('error featching data: ' + error)
@@ -32,8 +32,8 @@ const Bookmark = () => {
                 <a href="/" className="btn btn-primary"><CaretLeftFill /> Back</a>
                 <Button variant="danger" onClick={() => setSaved([])}><TrashFill /> Clear All</Button>
             </Container>
-            <Container className={`row mx-auto px-2 gap-3 mb-3 ${animes.length === 2 || animes.length % 4 === 2 ? 'justify-content-center' : 'justify-content-between'}`}>
-                {animes.map((anime, index) => {const status = saved.includes(anime.mal_id); return(<MyCard key={index} id={anime.mal_id} title={anime.title} score={anime.score} image={anime.images.jpg.image_url} genres={anime.genres} setSaved={setSaved} status={status} saved={saved} inBookmark={true} />)} )}
+            <Container className={`row mx-auto px-2 gap-3 mb-3 justify-content-center`}>
+                {animes.map((anime, index) => {const status = saved.includes(anime?.mal_id); return(<MyCard key={index} id={anime?.mal_id} title={anime?.title} score={anime?.score} image={anime?.images.jpg.image_url} genres={anime?.genres} setSaved={setSaved} status={status} saved={saved} inBookmark={true} />)} )}
             </Container>
         </>
     )
