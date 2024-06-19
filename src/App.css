@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+  font-family: "Poppins", sans-serif;
+}
+.card-img-top{
+  transition: ease all 0.2s;
+}
+.card a:hover .card-img-top{
+  transform: scale(1.1);
+}
+/* #home{
+  background-image: url('assets/frieren.jpg');
+  background-size: cover;
+} */
+.carousel-inner{
+  height: 100%;
+}
+.carousel-control-prev, .carousel-control-next{
+  display: none!important;
+}
+.carousel-content{
+  background-color: rgba(0,0,0,0.5);
+}
+.detail-data{
+  bottom: -500px;
+  background-color: rgba(0,0,0,0.5);
+  transition: 0.5s ease all;
+}
+.detail-card:hover .detail-data{
+  bottom: 0;
+}
+nav{
+  /* background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px); */
+  transition: 0.5s ease all;
+}
+.gallery{
+  cursor: pointer;
+}
+.gallery-hover{
+  background-color: rgba(0,0,0,0);
+  transition: 0.5s all ease;
+}
+.gallery:hover .gallery-hover{
+  background-color: rgba(0,0,0,0.5);
+}
+.modal-dialog{
+  width: max-content!important;
+}
+.modal{
+  display: flex!important;
+  justify-content: center;
+}
+/* .loading{
+  transition: 0.5s all ease;
+} */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #333;
+}
+::-webkit-scrollbar-thumb {
+  background: #555;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #111;
+}
