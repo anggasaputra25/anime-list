@@ -14,7 +14,7 @@ const DetailCharacter = () => {
     const [character, setCharacter] = useState([])
     const [galleries, setGalleries] = useState([])
     const [modalShow, setModalShow] = useState(false)
-    const [selectedImage, setSelectedImage] = useState('')
+    const [selectedImage, setSelectedImage] = useState()
     const [loading, setLoading] = useState(false)
     const navigate = useNavigate();
 
@@ -58,7 +58,7 @@ const DetailCharacter = () => {
                 <a href="/" className="btn btn-success"><HouseFill /></a>
             </Container>
             <Container className="shadow-sm rounded-3 p-3 my-3 d-flex gap-3 flex-md-row flex-column">
-                <div>
+                <div className="text-center">
                     <LazyLoadImage effect="blur" className="object-fit-cover rounded h-100" style={{ width: '18rem' }} src={character.images?.jpg.image_url} alt="img" />
                 </div>
                 <div className="w-100">
@@ -77,7 +77,7 @@ const DetailCharacter = () => {
                         </div>
                     )}
                 </div>
-                <ModalCharacter show={modalShow} onHide={() => setModalShow(false)} imageindex={selectedImage} galleries={galleries} name={character.name} />
+                <ModalCharacter show={modalShow} onHide={() => setModalShow(false)} imageindex={selectedImage} galleries={galleries} name={character.name} setimageindex={setSelectedImage} />
             </Container>
         </>
     )
