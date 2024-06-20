@@ -8,10 +8,13 @@
 .card a:hover .card-img-top{
   transform: scale(1.1);
 }
-/* #home{
-  background-image: url('assets/frieren.jpg');
-  background-size: cover;
-} */
+.card-body-hover{
+  margin-bottom: -50%;
+  transition: ease all 0.2s;
+}
+.card a:hover .card-body-hover{
+  margin-bottom: 0;
+}
 .carousel-inner{
   height: 100%;
 }
@@ -30,10 +33,6 @@
   bottom: 0;
 }
 nav{
-  /* background: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px); */
   transition: 0.5s ease all;
 }
 .gallery{
@@ -56,15 +55,19 @@ nav{
 /* .loading{
   transition: 0.5s all ease;
 } */
+.card-character{
+  width: 500px!important;
+}
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 5px;
+  display: none;
 }
 ::-webkit-scrollbar-track {
   background: #333;
 }
 ::-webkit-scrollbar-thumb {
-  background: #555;
+  background: #fff;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #111;

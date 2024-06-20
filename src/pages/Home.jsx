@@ -15,7 +15,7 @@ import MyHomeLoading from "../components/MyHomeLoading";
 const Home = () => {
     const [animes, setAnimes] = useState([])
     const [query, setQuery] = useState()
-    const [debounceValue] = useDebounce(query, 300)
+    const [debounceValue] = useDebounce(query, 1000)
     const [currentPage, setCurrentPage] = useState(1)
     const [totalPages, setTotalPages] = useState()
     const [navActive, setNavActive] = useState("home")
@@ -179,7 +179,7 @@ const Home = () => {
                     </div>
                 </div>
             </Container>
-            <Container className={`row m-auto gap-3 mb-3 justify-content-center justify-content-md-between ${loading || homeLoading ? 'd-none' : ''}`}>
+            <Container className={`row m-auto mb-3 justify-content-center justify-content-md-between ${loading || homeLoading ? 'd-none' : ''}`}>
                 {animes.map((anime) => {const status = saved.includes(anime.mal_id); return(<MyCard key={anime.mal_id} id={anime.mal_id} title={anime.title} score={anime.score} image={anime.images.jpg.image_url} genres={anime.genres} setSaved={setSaved} status={status} saved={saved} inBookmark={false} />)} )}
             </Container>
             <Container className={`m-auto mb-3 ${loading || homeLoading ? 'd-none' : ''}`}>

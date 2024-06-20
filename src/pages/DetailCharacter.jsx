@@ -57,9 +57,9 @@ const DetailCharacter = () => {
                 <Button onClick={() => navigate(-1)} className="btn btn-primary"><CaretLeftFill /> Back</Button>
                 <a href="/" className="btn btn-success"><HouseFill /></a>
             </Container>
-            <Container className="shadow-sm rounded-3 p-3 my-3 d-flex gap-3 flex-md-row flex-column">
-                <div className="text-center">
-                    <LazyLoadImage effect="blur" className="object-fit-cover rounded h-100" style={{ width: '18rem' }} src={character.images?.jpg.image_url} alt="img" />
+            <Container className="shadow-sm rounded-3 p-3 my-3 d-flex gap-3 flex-column">
+                <div className="text-center col-12 col-md-5 rounded m-auto" style={{ height: '500px', backgroundImage: `url(${character.images?.jpg.image_url})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+                    {/* <LazyLoadImage effect="blur" className="object-fit-cover rounded" src={character.images?.jpg.image_url} alt="img" /> */}
                 </div>
                 <div className="w-100">
                     <p>Name: {character?.name}</p>
@@ -69,9 +69,9 @@ const DetailCharacter = () => {
             </Container>
             <Container className="m-auto shadow rounded p-3 my-3">
                 <h3>Gallery</h3>
-                <div className="row w-100 gap-3 m-0 justify-content-center">
+                <div className="row w-100 gap-1 m-0 justify-content-center">
                     {galleries?.map((gallery, index) => 
-                        <div key={index} className="position-relative gallery p-0 rounded overflow-hidden" style={{ width: '200px' }} onClick={() => handleImageClick(index)}>
+                        <div key={index} className="position-relative gallery p-0 rounded overflow-hidden col-2 col-md-1" onClick={() => handleImageClick(index)}>
                             <div className="position-absolute w-100 h-100 gallery-hover"></div>
                             <LazyLoadImage effect="blur" src={gallery.jpg.image_url} alt="gallery" className="object-fit-cover bg-dark p-0 w-100" />
                         </div>

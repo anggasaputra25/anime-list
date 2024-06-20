@@ -6,6 +6,7 @@ import { CaretLeftFill, HouseFill } from "react-bootstrap-icons";
 import CardCharacter from "../components/CardCharacter";
 import MyHomeLoading from "../components/MyHomeLoading";
 import { useNavigate } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Detail = () => {
     const {id} = useParams();
@@ -13,6 +14,10 @@ const Detail = () => {
     const [characters, setCharacters] = useState([]);
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
 
     useEffect(() => {
         if (anime?.title) {
@@ -51,7 +56,7 @@ const Detail = () => {
                     <p className="m-0" style={{ textAlign: 'justify' }}>{anime.synopsis}</p>
                     <div className="d-flex flex-md-row flex-column gap-3 pt-3">
                         <div className="text-center">
-                            <img className="object-fit-cover rounded h-100" style={{ width: '18rem' }} src={anime.images ? anime.images.jpg.image_url : ''} alt="img" />
+                            <LazyLoadImage effect="blur" className="object-fit-cover rounded h-100" style={{ width: '18rem' }} src={anime.images ? anime.images.jpg.image_url : ''} alt="img" />
                         </div>
                         <div className="w-100">
                             <Table bordered hover className="h-100">
@@ -107,7 +112,7 @@ const Detail = () => {
                 {anime.trailer ? anime.trailer.embed_url ? <iframe width="100%" height="500" src={`${anime.trailer.embed_url}`} className="mb-4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe> : '' : ''}
                 <div className="w-100 rounded overflow-hidden shadow-sm mb-4 p-3">
                     <h1>Characters</h1>
-                    <div className="row gap-2 justify-content-center">
+                    <div className="d-flex overflow-scroll gap-2">
                         {characters.map((character, index) => <CardCharacter key={index} id={character.character.mal_id} image={character.character.images.jpg.image_url} name={character.character.name} role={character.role} />)}
                     </div>
                 </div>
