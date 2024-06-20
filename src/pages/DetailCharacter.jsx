@@ -72,8 +72,8 @@ const DetailCharacter = () => {
                 <div className="row w-100 gap-1 m-0 justify-content-center">
                     {galleries?.map((gallery, index) => 
                         <div key={index} className="position-relative gallery p-0 rounded overflow-hidden col-2 col-md-1" onClick={() => handleImageClick(index)}>
-                            <div className="position-absolute w-100 h-100 gallery-hover"></div>
-                            <LazyLoadImage effect="blur" src={gallery.jpg.image_url} alt="gallery" className="object-fit-cover bg-dark p-0 w-100" />
+                            <LazyLoadImage src={gallery.jpg.image_url} alt="gallery" className="object-fit-cover w-100 h-100" />
+                            <div className="position-absolute w-100 h-100 gallery-hover top-0"></div>
                         </div>
                     )}
                 </div>
